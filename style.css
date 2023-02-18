@@ -70,6 +70,38 @@ h1{
     text-align: center;
     font-family: 'Bebas Neue', cursive;
 }
+
+/* puts items in a row */
+#documentAction ul{
+    display: flex;
+    justify-content: space-around;
+  
+    background-color: pink;
+}
+#documentAction li{
+    background-color: aquamarine;
+    display: grid;
+    grid-template-rows: 40px 20px;
+}
+
+.documentStyle{
+   grid-row: 2/-1;
+   
+    
+}
+#documentAction ul a{
+    color: #EB5428;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', cursive;
+    text-decoration: none;
+    letter-spacing: .25px;
+   
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center; 
+   
+}
+
 h2{
     text-align: center;
     font-size: 30px;
@@ -91,6 +123,21 @@ dl{
     vertical-align: bottom;
 }
 
+#socialMedia{
+    background-color: aquamarine;
+    margin: 15px 0;
+}
+
+#socialMedia a{
+    text-decoration: none;
+    color: #EB5428;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', cursive;
+}
+.icon{
+    display: inline-block;
+    margin-bottom: 20px;
+}
 article{
     background-color: #7ABFBF;
 }
@@ -114,7 +161,7 @@ header nav a{
 
 nav ul{
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
 }
 
@@ -138,11 +185,7 @@ nav li{
     max-width: 30%; 
 }
 
-#connect{
-    display: flex;
-    background-color: aquamarine;
-    margin: 15px 0;
-}
+
 #recipeDirection{
     background-color: lightpink;
     width: 80%;
@@ -170,6 +213,7 @@ footer img{
 @media screen and (min-width: 768px){
    #wrapper{
     width: 768px;
+    /* grid-template-columns: 1fr; */
    }
    #mainNavigation{
     display: block;
@@ -180,6 +224,7 @@ footer img{
 @media screen and (min-width: 1280px){
     #wrapper{
      width: 1280px;
+     grid-template-columns: repeat(3, 1fr);
     }
    
  }
