@@ -59,14 +59,20 @@ body{
     width: 414px;
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, auto);
     margin: 0 auto;
     background-color:#fff;
 }
+/* main{
+    grid-column: 1/-1;
+    grid-row: 5/6;
+} */
 #mainHeader{
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     /* border-bottom: 2px solid gray; */
     box-shadow: 0 5px 5px #999;
+    grid-row: 1/2;
 
 }
 
@@ -74,12 +80,17 @@ h1{
     font-size: 40px;
     text-align: center;
     font-family: 'Bebas Neue', cursive;
+    grid-row: 3/4;
 }
 
 #logo{
     flex-grow: 3;
     background-color: #EB5428;
     text-align: center;
+    /* padding-top: 5px; */
+}
+#documentAction{
+    grid-row: 4/5;
 }
 #documentAction ul{
     display: grid;
@@ -129,9 +140,9 @@ dl{
 }
 
 #socialMedia{
-    background-color: aquamarine;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-row: 7/8;
 
 }
 #socialMedia div{
@@ -154,6 +165,7 @@ dl{
 
 article{
     background-color: #7ABFBF;
+    grid-row: 6/7;
 }
 
 
@@ -199,6 +211,7 @@ article{
     place-content: end;
     grid-template-columns: 55px;
     grid-template-rows: auto auto; 
+   
 }
 #signUp a{
     grid-column: 1/-1;
@@ -230,6 +243,9 @@ article{
     width: 70%;
     place-content: center;
     margin: 0 auto;
+    background-color: #F2F2F2;
+    margin-bottom: 20px;
+    grid-row: 2/3;
     
    
 }
@@ -265,6 +281,8 @@ nav li{
 article{
     display: grid;
     grid-template-columns: 1fr;
+
+    grid-row: 6/7;
 }
 article h2{
     padding: 10px 0 30px;
@@ -310,6 +328,7 @@ footer{
     background-color: aqua;
     padding: 30px 0;
     text-align: center;
+    grid-row: 8/-1;
     
 }
 
