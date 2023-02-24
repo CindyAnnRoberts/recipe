@@ -53,7 +53,7 @@ table {
 
 body{
     background-color: rgba(122, 191, 191, .5);
-    line-height: 1.5;
+    line-height: 1.6;
     font-family: 'Montserrat', sans-serif;
 }
 #wrapper{
@@ -70,24 +70,24 @@ h1{
     text-align: center;
     font-family: 'Bebas Neue', cursive;
     grid-row: 3/4;
+    margin: 10px 0 20px;
 }
 
-#documentAction{
+aside{
     grid-row: 4/5;
+    margin-bottom: 20px;
 }
-#documentAction ul{
+aside ul{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
-    background-color: pink;
 }
-#documentAction li{
-    background-color: aquamarine;
+aside li{
     display: grid;
     grid-template-rows: 40px 20px;
     justify-items: center;
 }
-#documentAction ul a{
+aside ul a{
     color: #EB5428;
     text-transform: uppercase;
     font-family: 'Bebas Neue', cursive;
@@ -98,11 +98,24 @@ h1{
 .documentStyle{
     grid-row: 2/-1; 
  }
-main img{
+ main{
+    grid-row: 5/6;
+ }
+main div img{
     max-width: 100%;
     vertical-align: bottom;
 }
-
+main p:nth-of-type(2){
+    margin-top: 15px;
+    padding: 0 20px;
+}
+main p:nth-of-type(1){
+    margin-top: 15px;
+    padding: 0 20px;
+}
+#details{
+    padding: 10px 0 20px 20px;
+}
 #details dt{
     font-weight: 700;
     margin-right:5px;
@@ -116,18 +129,32 @@ h2{
     font-size: 30px;
     text-transform: uppercase;
     font-family: 'Bebas Neue', cursive;
+    font-size: 30px;
 }
-
+h3{
+    font-size: 25px;
+}
+#ingredients{
+    padding: 5px 0 20px 20px;
+}
 #ingredients ul{
     list-style-type:disc;
     width: 90%;
     margin: 0 auto;
 }
-
-#recipeDirection ol{
+#ingredients li{
+    margin-bottom: 7px;
+}
+#directions{
+    padding: 5px 0 20px 20px;
+}
+#directions ol{
     list-style-type: decimal;
     width: 90%;
     margin: 0 auto;
+}
+#directions li{
+    margin-bottom: 10px;
 }
 
 article{
@@ -141,44 +168,47 @@ article h2{
     padding: 10px 0 30px;
 }
 
+
 .sideItem{
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
     column-gap: 10px;
     margin-bottom: 15px;
+    padding: 0 20px;
 }
 
 .sideItem h3{
     font-family: 'Bebas Neue', cursive;
     grid-column: 2/-1;
     grid-row: 1/-1;
-
+    
 }
 .sideItem p{
     grid-column: 2/-1;
     grid-row: 1/-1;
-    margin-top: 30px;
+    margin-top: 38px;
 }
 
 .sideItem img{
     max-width: 100%; 
     grid-column: 1/2;
-    
-
 }
 .stars{
     grid-column: 2/-1;
     grid-row: 1/-1;
-    margin-top: 45px;
+    margin-top: 22px;
 }
-
+.stars p{
+    font-weight: 700;
+}
 #mainHeader{
     display: flex;
     margin-bottom: 50px;
     box-shadow: 0 5px 5px #999;
     grid-row: 1/2;
 
+    position: relative;
 }
 
 #hamburger{
@@ -188,6 +218,7 @@ article h2{
     align-content: center;
     grid-column: 1/2;
     grid-row: 1/2;
+    padding: 10px;
 }
 
 #hamburger a{
@@ -197,6 +228,7 @@ article h2{
     color: #000;
     font-family: 'Bebas Neue', cursive;
     text-align: center; 
+    display: block;
 }
 
 #hamburger svg{
@@ -209,12 +241,21 @@ article h2{
     flex-grow: 3;
     background-color: #EB5428;
     text-align: center;
-    /* padding-top: 5px; */
+    padding: 10px;
 }
 
 nav{
-    /* width: 90%; */
+    display: none;
+
     margin: 1rem auto;
+    position: absolute;
+    top: 80px;
+    width: 100%;
+   
+}
+
+
+nav ul img{
     display: none;
 }
 
@@ -223,10 +264,14 @@ header nav a{
     font-family: 'Bebas Neue', cursive;
     color: #EB5428;
     letter-spacing: .25px;
+
+    margin-bottom: 10px;
 }
 
 nav ul{
-    display: flex;
+    overflow: hidden;
+    background-color: #fff;
+    
     justify-content: center;
     align-items: center;
 }
@@ -234,8 +279,8 @@ nav ul{
 nav li img{
     width: 48%;
     margin: 5px 0;
-    
 }
+
 nav li{
     display: flex;
     flex-direction: column-reverse;
@@ -252,6 +297,7 @@ nav li{
     place-content: end;
     grid-template-columns: 55px;
     grid-template-rows: auto auto; 
+    padding: 10px;
    
 }
 #signUp a{
@@ -266,7 +312,6 @@ nav li{
     grid-row: 1/2;
     grid-column: 1/-1;
     justify-self: center;
-   
 }
 
 #search{
@@ -274,7 +319,7 @@ nav li{
     grid-template-columns: 6fr 1fr;
 
     grid-template-rows: 40px;
-    width: 70%;
+    width: 80%;
     place-content: center;
     margin: 0 auto;
     background-color: #F2F2F2;
@@ -283,9 +328,9 @@ nav li{
 }
 [type="text"]{
     border: 2px solid #EB5428;  
-    height: 40px;
     grid-column: 1/-1;
     grid-row: 1/-1;
+    /* height: 40px; */
  }
 #search svg{
     grid-column: 2/-1;
@@ -298,7 +343,7 @@ nav li{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-row: 7/8;
-    margin-top: 30px;
+    margin: 10px 0;
 
 }
 #socialMedia div{
@@ -320,8 +365,12 @@ footer{
     text-align: center;
     grid-row: 8/-1;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
+}
+footer div:last-of-type{
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 footer p, small{
@@ -339,25 +388,294 @@ footer img{
 @media screen and (min-width: 768px){
    #wrapper{
     width: 768px;
-    /* grid-template-columns: 1fr; */
    }
-   #mainNavigation{
+
+   h1{
+    margin: 50px 0 0 0;
+    text-align: left;
+    padding-left: 20px;
+   }
+   
+   #hamburger{
+    display: none;
+   }
+
+   #logo{
+    /* flex-grow: 1; */
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: transparent;
+    text-align: left;
+    padding: 0; 
+   }
+
+   #logo svg{
+    vertical-align: bottom;
+   }
+   
+   #signUp{
+    padding: 10px 10px 0 0;
+   }
+
+   #search{
+   position: relative;
+   top: -98px;
+   width: 40%;
+   margin: 0 0 0 359px;
+   }
+
+   #mainHeader{
+    box-shadow: none;
+   }
+
+ 
+
+   nav{
     display: block;
-   }
+    grid-column: 2/3;
+    grid-row: 1/2;
+   
+    text-align: center;
+    box-shadow: 0 5px 5px #999;
+    }
+
+    nav ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin-bottom: 10px; */
+    }
+
+    aside{
+        position: absolute;
+        top: 274px;
+        width: 768px;
+        
+        background: rgba(255, 255, 255, 0.45);
+        padding: 20px 0;
+        margin-top: 0;
+    }
+    dl{
+        justify-content: center;
+    }
+    main div img{
+        margin-top: 5px;
+    }
+  
+
+    nav ul img{
+        display: block;
+    }
+    #details{
+        align-items: center;
+    }
+    #ingredients{
+        float: left;
+        width: 30%;
+    }
+    .stars{
+        display: flex;
+    }
+    .stars svg{
+        margin-top: 40px;
+        margin-left: 5px;
+    }
+  
    article{
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
+    }
+
     article h2{
         grid-column: 1/-1;
     }
+    footer{
+        flex-direction:row-reverse;
+    }
+    footer div:first-of-type{
+        float: right;
+        width: 58%;
+    }
+    
 }
 
 @media screen and (min-width: 1280px){
     #wrapper{
      width: 1280px;
-     grid-template-columns: repeat(2, 1fr);
+     grid-template-rows: repeat(7, auto);
+     /* grid-template-columns: 100px 1fr 100px; */
+    }
+
+    #mainHeader{
+       display: grid;
+       grid-template-columns: auto 1fr auto;
+       column-gap: 10px;
+       
+       align-items: center;
+       
+        margin-bottom: 50px;
+        box-shadow: 0 5px 5px #999;
+        grid-row: 1/2;
+    }
+   
+    h1{
+        margin: 20px 0;
+        text-align: center;
+        grid-column: 1/-1;
+        grid-row: 3/4;
+        padding-left: 0;
+    }
+    nav{
+        position: static;
+        justify-self: center;
+        box-shadow: none;
+        grid-column: 2/3;
+        margin: 0;
+        width: 75%;
+    }
+   nav img{
+    padding-top: 10px;
+   }
+
+    
+
+    #logo{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        margin: 0;
+        padding: 0;
+        background-color: #EB5428;
+        width: 100px;
+        height: 110px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+
+    #logo a{
+        display: inline-block;
+        margin: 0 auto;
+    }
+    #signUp{
+        padding: 10px 15px;
+    }
+  
+    #search{
+        grid-column: 3/-1;
+        grid-row: 2/-1;
+        width: 30%;
+        margin: 0 auto;
+    }
+
+    #mainHeader{
+        grid-row: 1/2;
+        grid-column: 1/-1;
+    }
+    #search{
+        position: static;
+        grid-column: 1/-1;
+        grid-row: 2/3;
     }
    
    
+   
+    aside{
+    position: static;
+
+    grid-column: 1/2;
+    grid-row: 4/5;
+    
+    background-color: #fff;
+    height: 638px;
+    border: 1px solid #EB5428;
+    }
+
+    aside ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    }
+
+    main{
+        grid-column: 1/-1;
+        grid-row: 4/5;
+
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(3, auto);
+    }
+    main div {
+        grid-column: 1/-1;
+        grid-row: 1/2;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+    }
+    main img{
+        grid-column: 1/2;
+    }
+    .mainText{
+        grid-column: 2/-1;
+        grid-row: 1/-1;
+    }
+    main div .partTwo{
+        margin-top: 130px;
+    }
+    #details{
+        grid-column: 1/-1;
+        grid-row: 2/3;
+        background-color: #000;
+        color: #7ABFBF;
+        
+
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 20px;
+        /* padding: 10px 30px 30px; */
+    }
+    #details h2{
+        grid-column: 1/-1;
+    }
+    dl{
+        flex-direction: column;
+        text-align: center;
+    }
+    #ingredients{
+        border: 1px solid green;
+        grid-column: 1/2;
+        grid-row: 3/4;
+    }
+
+    #ingredients ul{
+        list-style-type:disc;
+        margin: 0 auto; 
+    }
+    #directions{
+        /* margin-left: 220px; */
+        border: 1px solid purple;
+        grid-column: 2/-1;
+
+    }
+
+    #logo{
+        padding-bottom: 0;
+        
+    }
+   
+   
+    article{
+        grid-row: 5/6;
+        grid-column: 1/-1;
+    }
+    #socialMedia{
+        grid-row: 6/-1;
+        grid-column: 3/-1;
+    }
+    footer{
+        grid-row: 6/-1;
+        grid-column: 1/3;
+        
+    }
  }
