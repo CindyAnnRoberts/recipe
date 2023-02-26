@@ -69,7 +69,7 @@ h1{
     text-align: center;
     font-family: 'Bebas Neue', cursive;
     grid-row: 3/4;
-    margin: 10px 0 20px;
+    margin: 0px 0 10px;
 }
 main{
     grid-row: 5/6;
@@ -194,10 +194,13 @@ h3{
 }
 #topHeader{
     display: flex;
-    margin-bottom: 50px;
+
+    margin-bottom: 40px;
+    z-index: 1000;
+
     box-shadow: 0 5px 5px #999;
     grid-row: 1/2;
-    position: relative;
+    position: relative;  
 }
 #topHeader .checkbox{
     z-index: 3000;
@@ -210,9 +213,10 @@ h3{
 .hamburgerIcon{
     z-index: 1000;
 }
+/* Must have max-height. Its the height of nav menu when checkbox is toggled */
 #topHeader .checkbox:checked ~ nav{
     transform: translateY(0%);
-    max-height: 240px;
+    max-height: 640px;
 }
 #topheader nav a{
     visibility: hidden;
@@ -229,34 +233,40 @@ h3{
 }
 nav{
     position: absolute;
-    top: 0;
+    top: 80px;
     left: 0;
-    overflow: hidden;  
+    overflow: visible;  
 
     width: 100%;
+
     justify-self: center;
     box-shadow: none;
     grid-column: 2/3;
+    grid-row: 1/2;
     margin: 0;
-    transform: translateY(-100%);
+    transform: translateY(-140%);
+    
     transition: transform 0.2s ease;
+    background-color: #fff;
 }
 nav ul{
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 nav li{
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    /* padding: 10px 0; */
 }
+
 nav a{
     text-decoration: none;
     font-family: 'Bebas Neue', cursive;
     color: #EB5428;
     letter-spacing: .25px;
     margin-bottom: 10px;
+    padding: 5px 3px;
 }
 nav li img{
     width: 48%;
@@ -297,6 +307,7 @@ nav li img{
     margin: 0 auto;
     background-color: #F2F2F2;
     margin-bottom: 20px;
+    
     grid-row: 2/3;
 }
 [type="text"]{
@@ -354,11 +365,14 @@ footer img{
 @media screen and (min-width: 768px){
    #wrapper{
     width: 768px;
+    grid-template-rows: repeat(7, auto);
    }
    h1{
-    margin: 50px 0 0 0;
+    margin: 0 ;
     text-align: left;
     padding-left: 20px;
+    grid-column: 1/-1;
+    grid-row: 3/4;
    }
    aside{
     position: absolute;
@@ -368,7 +382,9 @@ footer img{
     background: rgba(255, 255, 255, 0.45);
     padding: 20px 0;
     margin-top: 0;
+    grid-row: 6/7;
     }
+   
     main div img{
     margin-top: 5px;
     }
@@ -386,6 +402,8 @@ footer img{
         width: 30%;
     }
     article{
+        grid-column: 1/-1;
+        grid-row: 6/7;
     display: grid;
     grid-template-columns: 1fr 1fr;
     }
@@ -400,16 +418,26 @@ footer img{
         margin-left: 5px;
     }
     #topHeader{
+        grid-column: 1/-1;
+        grid-row: 1/3;
+        margin-bottom: 20px;
+
         display: grid;
         grid-template-columns: 60px 1fr 60px;
+        grid-template-rows: auto auto;
         justify-items: center;
-        align-items: center;
+        align-items: center;   
     }
+
     [type="checkbox"]{
         opacity: 0;
+        grid-column: 1/2;
+        grid-row: 1/2;
     }
     .hamburgerIcon{
-        display: none;
+        display:none ;
+        grid-column: 1/2;
+        grid-row: 1/2;
     }
     #logo{
     grid-column: 1/2;
@@ -427,14 +455,21 @@ footer img{
     position: static;
     transform: translateY(0);
     transition: none;
+    margin-top: 15px;
     
     /* display: block; */
     /* overflow: visible; */
     grid-column: 2/3;
-    grid-row: 1/2;
+    grid-row: 2/-1;
     text-align: center;
     width: 85%;
     /* box-shadow: 0 5px 5px #999; */
+    }
+    nav li:hover{
+        background-color: #EB5428;
+    }
+    nav a:hover{
+        color: #fff;
     }
     nav ul{
         /* position: static; */
@@ -448,12 +483,19 @@ footer img{
     }
     #signUp{
         padding: 10px 10px 0 0;
-   }
-   #search{
-    position: relative;
-    width: 40%;
-    margin: 0 0 0 359px;
-   }
+        grid-column: 3/-1;
+        grid-row: 1/2;
+    }
+    #search{
+        grid-column: 1/-1;
+        grid-row: 1/2;
+        width: 40%;
+        /* position: relative; */
+        margin: 28px 0 40px 359px;
+        /* margin: 0; */
+        padding: 0;
+        z-index: 1000;
+    }
     footer{
         flex-direction:row-reverse;
     }
@@ -468,7 +510,7 @@ footer img{
 @media screen and (min-width: 1280px){
     #wrapper{
      width: 1280px;
-     grid-template-rows: repeat(7, auto);
+     grid-template-rows: repeat(6, auto);
     }
     h1{
         margin: 20px 0;
@@ -599,13 +641,14 @@ footer img{
 
         display: grid;
         grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto auto;
         column-gap: 10px;
         
         align-items: center;
         
         margin-bottom: 50px;
-        box-shadow: 0 5px 5px #999;
-        grid-row: 1/2;
+        /* box-shadow: 0 5px 5px #999; */
+        /* grid-row: 1/2; */
     }
     #logo{
         grid-column: 1/2;
@@ -629,6 +672,7 @@ footer img{
         justify-self: center;
         box-shadow: none;
         grid-column: 2/3;
+        grid-row: 1/2;
         
         margin: 0;
         width: 75%;
@@ -640,8 +684,8 @@ footer img{
         padding: 10px 15px;
     }
     #search{
-        grid-column: 3/-1;
-        grid-row: 2/-1;
+        /* grid-column: 3/-1;
+        grid-row: 2/-1; */
         width: 30%;
         margin: 0 auto;
         position: static;
