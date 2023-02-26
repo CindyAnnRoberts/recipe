@@ -64,7 +64,6 @@ body{
     margin: 0 auto;
     background-color:#fff;
 }
-
 h1{
     font-size: 40px;
     text-align: center;
@@ -72,8 +71,10 @@ h1{
     grid-row: 3/4;
     margin: 10px 0 20px;
 }
-
-aside{
+main{
+    grid-row: 5/6;
+ }
+ aside{
     grid-row: 4/5;
     margin-bottom: 20px;
 }
@@ -93,37 +94,26 @@ aside ul a{
     font-family: 'Bebas Neue', cursive;
     text-decoration: none;
     letter-spacing: .25px;
-   
 }
 .documentStyle{
     grid-row: 2/-1; 
  }
- main{
-    grid-row: 5/6;
- }
+
 main div img{
     max-width: 100%;
     vertical-align: bottom;
 }
-main p:nth-of-type(2){
+main p:nth-of-type(1){
     margin-top: 15px;
     padding: 0 20px;
 }
-main p:nth-of-type(1){
+main p:nth-of-type(2){
     margin-top: 15px;
     padding: 0 20px;
 }
 #details{
     padding: 10px 0 20px 20px;
 }
-#details dt{
-    font-weight: 700;
-    margin-right:5px;
-}
-dl{
-    display: flex;
-}
-
 h2{
     text-align: center;
     font-size: 30px;
@@ -131,8 +121,12 @@ h2{
     font-family: 'Bebas Neue', cursive;
     font-size: 30px;
 }
-h3{
-    font-size: 25px;
+dl{
+    display: flex;
+}
+#details dt{
+    font-weight: 700;
+    margin-right:5px;
 }
 #ingredients{
     padding: 5px 0 20px 20px;
@@ -156,19 +150,18 @@ h3{
 #directions li{
     margin-bottom: 10px;
 }
-
 article{
     background-color: #7ABFBF;
     grid-row: 6/7;
     display: grid;
     grid-template-columns: 1fr;
 }
-
 article h2{
     padding: 10px 0 30px;
 }
-
-
+h3{
+    font-size: 25px;
+}
 .sideItem{
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -177,22 +170,19 @@ article h2{
     margin-bottom: 15px;
     padding: 0 20px;
 }
-
 .sideItem h3{
     font-family: 'Bebas Neue', cursive;
     grid-column: 2/-1;
     grid-row: 1/-1;
-    
+}
+.sideItem img{
+    max-width: 100%; 
+    grid-column: 1/2;
 }
 .sideItem p{
     grid-column: 2/-1;
     grid-row: 1/-1;
     margin-top: 38px;
-}
-
-.sideItem img{
-    max-width: 100%; 
-    grid-column: 1/2;
 }
 .stars{
     grid-column: 2/-1;
@@ -202,165 +192,77 @@ article h2{
 .stars p{
     font-weight: 700;
 }
-
-
-#hamburger{
-    display: grid;
-    grid-template-columns: 60px;
-    grid-template-rows: auto auto;
-    align-content: center;
-    grid-column: 1/2;
+#topHeader{
+    display: flex;
+    margin-bottom: 50px;
+    box-shadow: 0 5px 5px #999;
     grid-row: 1/2;
-    padding: 10px;
+    position: relative;
 }
-
-#hamburger a{
-    grid-column: 1/-1;
-    grid-row: 2/-1;
-    text-decoration: none;
-    color: #000;
-    font-family: 'Bebas Neue', cursive;
-    text-align: center; 
-    display: inline-block;
-   
+#topHeader .checkbox{
+    z-index: 3000;
+    cursor: pointer;
+    position: absolute;
+    /* top: 60px;
+    left: 50px; */
+    /* opacity: 0; */
 }
-
-#hamburger svg{
-    grid-column: 1/-1;
-    grid-row: 1/2;
-    justify-self: center;
+.hamburgerIcon{
+    z-index: 1000;
 }
-
+#topHeader .checkbox:checked ~ nav{
+    transform: translateY(0%);
+    max-height: 240px;
+}
+#topheader nav a{
+    visibility: hidden;
+    transition: visibility 0.5s linear;
+}
+#topHeader .checkbox:checked ~ nav a{
+    visibility: visible;
+}
 #logo{
     flex-grow: 3;
     background-color: #EB5428;
     text-align: center;
     padding: 10px;
 }
-
-/* nav{
-    display: none;
-    margin: 1rem auto;
-    position: absolute;
-    top: 80px;
-    width: 100%;
-    z-index: 1000;
-    border: 1px solid lime;
-} */
-
 nav{
     position: absolute;
     top: 0;
     left: 0;
     overflow: hidden;  
 
-
     width: 100%;
-    
     justify-self: center;
     box-shadow: none;
     grid-column: 2/3;
     margin: 0;
-   
-}
-
-
-#topHeader{
-    display: flex;
-    margin-bottom: 50px;
-    box-shadow: 0 5px 5px #999;
-    grid-row: 1/2;
-
-    position: relative;
-}
-
-
-.hamburger{
-    z-index: 1000;
-}
-[label="checkbox"]{
-    padding: 20px;
-    
-}
-#topHeader .checkbox{
-    z-index: 3000;
-    cursor: pointer;
-    position: absolute;
-    
-    /* top: 60px;
-    left: 50px; */
-    /* opacity: 0; */
-
-}
-
-.drawer{
     transform: translateY(-100%);
     transition: transform 0.2s ease;
-    
 }
-#topHeader .checkbox:checked ~ .drawer{
-    transform: translateY(0%);
-    max-height: 240px;
-}
-#topheader .drawer a{
-    visibility: hidden;
-    transition: visibility 0.5s linear;
-}
-
-#topHeader .checkbox:checked ~ .drawer a{
-    visibility: visible;
-}
-
-.icon_container{
-    background-color: #fff;
-    width: 70px;
-    height: 60px;
-    padding: 13px 0;
-    text-align: center;
-    z-index: 2000;
-}
-.icon_container a{
-    color: #000;
-    text-decoration: none;
-    font-family: 'Bebas Neue', cursive;
-}
-   
-
-
-
-nav ul img{
-    display: none;
-}
-
-header nav a{
-    text-decoration: none;
-    font-family: 'Bebas Neue', cursive;
-    color: #EB5428;
-    letter-spacing: .25px;
-
-    margin-bottom: 10px;
-}
-
 nav ul{
-    /* overflow: hidden; */
-    background-color: lightpink;
-    
     justify-content: center;
     align-items: center;
     width: 100%;
 }
-
-nav li img{
-    width: 48%;
-    margin: 5px 0;
-}
-
 nav li{
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
 }
-
+nav a{
+    text-decoration: none;
+    font-family: 'Bebas Neue', cursive;
+    color: #EB5428;
+    letter-spacing: .25px;
+    margin-bottom: 10px;
+}
+nav li img{
+    width: 48%;
+    margin: 5px 0;
+    display: none;
+}
 #signUp{
     text-transform: uppercase;
     font-family: 'Bebas Neue', cursive;
@@ -372,7 +274,6 @@ nav li{
     grid-template-columns: 55px;
     grid-template-rows: auto auto; 
     padding: 10px;
-   
 }
 #signUp a{
     grid-column: 1/-1;
@@ -381,13 +282,11 @@ nav li{
     text-decoration: none;
     color: #000;
 }
-
 #signUp svg{
     grid-row: 1/2;
     grid-column: 1/-1;
     justify-self: center;
 }
-
 #search{
     display: grid;
     grid-template-columns: 6fr 1fr;
@@ -411,21 +310,17 @@ nav li{
     grid-row: 1/-1;
     justify-self: end;
 }
-
-
 #socialMedia{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-row: 7/8;
     margin: 10px 0;
 }
-
 #socialMedia div{
     display: grid;
     grid-template-rows: 40px 30px;
     justify-items: center;
 }
-
 #socialMedia a{
     text-decoration: none;
     color: #EB5428;
@@ -433,7 +328,6 @@ nav li{
     font-family: 'Bebas Neue', cursive;
     grid-row: 2/-1;
 }
-
 footer{
     padding: 30px 0;
     text-align: center;
@@ -446,12 +340,10 @@ footer div:last-of-type{
     display: flex;
     flex-direction: column-reverse;
 }
-
 footer p, small{
     text-transform: uppercase;
     font-family: 'Bebas Neue', cursive;
 }
-
 footer img{
     max-width: 40%;
     margin-bottom: 15px;
@@ -463,103 +355,42 @@ footer img{
    #wrapper{
     width: 768px;
    }
-
    h1{
     margin: 50px 0 0 0;
     text-align: left;
     padding-left: 20px;
    }
-   
-  
-
-   #logo{
-    /* flex-grow: 1; */
-    grid-column: 1/2;
-    grid-row: 1/2;
-    background-color: transparent;
-    text-align: left;
-    padding: 0; 
-   }
-
-   #logo svg{
-    vertical-align: bottom;
-   }
-   
-   #signUp{
-    padding: 10px 10px 0 0;
-   }
-
-   #search{
-   position: relative;
-   width: 40%;
-   margin: 0 0 0 359px;
-   }
-
-   #topHeader{
-    box-shadow: 0 5px 5px #999;
-   }
-
-    [type="checkbox"]{
-        opacity: 0;
-    }
-    .hamburger{
-        display: none;
-    }
-   .drawer{
-        position: static;
-        transform: translateY(0);
-        transition: none;
-        
-        display: block;
-        overflow: visible;
-        grid-column: 2/3;
-        grid-row: 1/2;
+   aside{
+    position: absolute;
+    top: 274px;
+    width: 768px;
     
-        text-align: center;
-        box-shadow: 0 5px 5px #999;
-    
-    
+    background: rgba(255, 255, 255, 0.45);
+    padding: 20px 0;
+    margin-top: 0;
     }
-
-    nav ul{
-        position: static;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* margin-bottom: 10px; */
+    main div img{
+    margin-top: 5px;
     }
-
-    aside{
-        position: absolute;
-        top: 274px;
-        width: 768px;
-        
-        background: rgba(255, 255, 255, 0.45);
-        padding: 20px 0;
-        margin-top: 0;
+    main div .partTwo{
+    margin-top: 20px;
+    }
+    #details{
+    align-items: center;
     }
     dl{
         justify-content: center;
     }
-    main div img{
-        margin-top: 5px;
-    }
-    main div .partTwo{
-        margin-top: 20px;
-    }
-    .socialIcon{
-        padding: 0 20px;
-    }
-
-    nav ul img{
-        display: block;
-    }
-    #details{
-        align-items: center;
-    }
     #ingredients{
         float: left;
         width: 30%;
+    }
+    article{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    }
+    article h2{
+        grid-column: 1/-1;
     }
     .stars{
         display: flex;
@@ -568,16 +399,67 @@ footer img{
         margin-top: 40px;
         margin-left: 5px;
     }
-  
-   article{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    #topHeader{
+        display: grid;
+        grid-template-columns: 60px 1fr 60px;
+        justify-items: center;
+        align-items: center;
     }
 
-    article h2{
-        grid-column: 1/-1;
+    [type="checkbox"]{
+        opacity: 0;
     }
-   
+    .hamburgerIcon{
+        display: none;
+    }
+    #logo{
+    /* flex-grow: 1; */
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: transparent;
+    text-align: left;
+    padding: 0; 
+    height: 60px;
+    background-color: aqua;
+    }
+    #logo svg{
+    vertical-align: bottom;
+   }
+   nav{
+    position: static;
+    transform: translateY(0);
+    transition: none;
+    
+    /* display: block; */
+    /* overflow: visible; */
+    grid-column: 2/3;
+    grid-row: 1/2;
+    text-align: center;
+    width: 85%;
+    /* box-shadow: 0 5px 5px #999; */
+    }
+    nav ul{
+        /* position: static; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* margin-bottom: 10px; */
+    }
+    nav ul img{
+        display: block;
+    }
+    #signUp{
+        padding: 10px 10px 0 0;
+   }
+   #search{
+    position: relative;
+    width: 40%;
+    margin: 0 0 0 359px;
+   }
+    .socialIcon{
+        padding: 0 20px;
+    }
+
     footer{
         flex-direction:row-reverse;
     }
@@ -596,7 +478,31 @@ footer img{
     #wrapper{
      width: 1280px;
      grid-template-rows: repeat(7, auto);
-    
+    }
+    h1{
+        margin: 20px 0;
+        text-align: center;
+        grid-column: 1/-1;
+        grid-row: 3/4;
+        padding-left: 0;
+    }
+    aside{
+        grid-row: 4/5;
+        position: static;
+        border: 1px solid #EB5428;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        width: 110px;
+        height: 835px;
+        margin: 5px 0 0;
+    }
+    aside li{
+        margin-bottom: 28px;
+    }
+    aside ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
     }
 
     #topHeader{
@@ -615,18 +521,13 @@ footer img{
     }
    
    
-    h1{
-        margin: 20px 0;
-        text-align: center;
-        grid-column: 1/-1;
-        grid-row: 3/4;
-        padding-left: 0;
-    }
+   
     nav{
         position: static;
         justify-self: center;
         box-shadow: none;
         grid-column: 2/3;
+        
         margin: 0;
         width: 75%;
     }
@@ -651,45 +552,13 @@ footer img{
         display: inline-block;
         margin: 0 auto;
     }
-    #signUp{
-        padding: 10px 15px;
-    }
   
-    #search{
-        grid-column: 3/-1;
-        grid-row: 2/-1;
-        width: 30%;
-        margin: 0 auto;
-    }
 
     
-    #search{
-        position: static;
-        grid-column: 1/-1;
-        grid-row: 2/3;
-    }
    
    
-    aside{
-        grid-row: 4/5;
-        position: static;
-        border: 1px solid #EB5428;
-        grid-column: 1/2;
-        grid-row: 1/2;
-        width: 110px;
-        height: 835px;
-        margin: 5px 0 0;
-    }
-    aside li{
-        margin-bottom: 28px;
-    }
-
-
-    aside ul{
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    }
+   
+    
 
     main{
         grid-column: 1/-1;
@@ -800,45 +669,45 @@ footer img{
         grid-row: 2/-1;
         margin: 30px 0 25px;
     }
-
+    
+    #signUp{
+        padding: 10px 15px;
+    }
+    #search{
+        grid-column: 3/-1;
+        grid-row: 2/-1;
+        width: 30%;
+        margin: 0 auto;
+        position: static;
+        grid-column: 1/-1;
+        grid-row: 2/3;
+    }
+    footer{
+        grid-row: 6/-1;
+        grid-column: 1/2;
+        /* display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        */
+        text-align: left; 
+    }
     #socialMedia{
         
         width: 50%;
         grid-column: 3/-1;
         grid-row: 1/2;
     }
-    
-    footer{
-        grid-row: 6/-1;
-        grid-column: 1/2;
-
-        /* display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 1fr;
-        */
-        text-align: left;
-        
-    }
     #copyRight{
         display: grid;
         grid-template-columns: 300px 200px;
         grid-template-rows: auto auto;
-        
-       
-       
     }
-  
-    /* #copyRight p{
-        grid-column: 2/-1;
-        grid-row: 2/-1; 
-    } */
     #copyRight p small{
         grid-column: 2/-1;
         grid-row: 1/2; 
         background-color: aqua;
         margin-top: 30px;
     }
-    
     #copyRight img{
         grid-column: 1/2;
         grid-row: 1/-1;
