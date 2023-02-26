@@ -491,13 +491,11 @@ footer img{
 
    #search{
    position: relative;
-   top: -98px;
    width: 40%;
    margin: 0 0 0 359px;
    }
 
    #topHeader{
-    /* box-shadow: none; */
     box-shadow: 0 5px 5px #999;
    }
 
