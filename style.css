@@ -405,7 +405,6 @@ footer img{
         justify-items: center;
         align-items: center;
     }
-
     [type="checkbox"]{
         opacity: 0;
     }
@@ -413,7 +412,6 @@ footer img{
         display: none;
     }
     #logo{
-    /* flex-grow: 1; */
     grid-column: 1/2;
     grid-row: 1/2;
     background-color: transparent;
@@ -456,20 +454,14 @@ footer img{
     width: 40%;
     margin: 0 0 0 359px;
    }
-    .socialIcon{
-        padding: 0 20px;
-    }
-
     footer{
         flex-direction:row-reverse;
     }
+    .socialIcon{
+        padding: 0 20px;
+    }
     footer div:first-of-type{
         background-color: #999;
-        /* float: right; */
-        /* width: 58%; */
-    }
-    .icon_container{
-        display: none;
     }
     
 }
