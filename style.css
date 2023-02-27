@@ -774,7 +774,7 @@ footer img{
     #copyRight{
         grid-column: 1/3;
         grid-row: 1/-1;
-        width: 50%;
+       
         display: flex;
         flex-direction: column;
         position: relative;
@@ -784,18 +784,62 @@ footer img{
         position: absolute;
         left: 260px;
         top: 50px;
-        width: 100px;
+        width: 150px;
         text-align: center;
     }
     #copyRight p small{
         position: absolute;
         right: 0;
         top: -20px;
-        width: 100px;
+        width: 150px;
         text-align: center;
     }
-
-   
-   
-  
  }
+
+ @media print{
+    body{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    nav, main img, article img, aside li, #search, footer img {
+        display: none;
+    } 
+    aside, div, section, article, header, footer{
+        display: block;
+    }
+    #topHeader .hamburgerIcon, .hamburgerTitle, #signUp, .socialIcon svg, .sideItem, article h2{
+        display: none;
+    }
+    #topHeader{
+        box-shadow: none;
+    }
+    a[href]::after{
+        content:" (" attr(href) ")";
+        font-size: 16px;
+        color: #000;
+    }
+    .socialIcon a[href]{
+        display: inline-block;
+    }
+
+    #wrapper{
+        margin-left: 0.5in;
+        margin-right: 0.5in;
+        line-height: 1.3;
+    }
+    h1, h2 {
+        text-align: left;
+        font-size: 20px;
+    }
+    #ingredients ul{
+        columns: 3;
+    }
+   h1{
+    padding-left: 0;
+    margin-left: 0.25in;
+   }
+   footer{
+    display: block;
+   }
+ 
+ 
+}
