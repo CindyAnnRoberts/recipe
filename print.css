@@ -1,0 +1,14 @@
+@media print{
+    body{
+        color: #000;
+        font-family:  serif;
+        margin: 0.5px;
+    }
+    img{
+        display: none;
+    }
+    nav{
+        display: none;
+    }
+    
+}

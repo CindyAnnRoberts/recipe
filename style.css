@@ -505,6 +505,7 @@ footer img{
     }
     nav ul img{
         display: block;
+        padding-top: 5px;
     }
     #signUp{
         grid-column: 3/-1;
@@ -732,11 +733,10 @@ footer img{
         margin: 0;
         width: 75%;
     }
-    nav img{
-        padding-top: 10px;
-   }
+
     #signUp{
         padding: 10px 15px;
+        margin-top: 0;
     }
     #search{
         width: 25%;
